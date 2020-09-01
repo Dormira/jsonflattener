@@ -40,9 +40,10 @@ if __name__ == "__main__":
     argv[1] = output directory name
     All subsequent arguments must be input file names
 
-    TODO: add check that outputdir is valid path
     """
     outputDir = sys.argv[1]
+    assert os.path.exists(outputDir), "Output directory is not a valid path. Please specify an existing directory to output to."
+
     for fpath in sys.argv[2:]:
         basename = os.path.basename(fpath)
         with open(os.path.join(outputDir,basename), "w") as outputFile:
