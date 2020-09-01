@@ -2,6 +2,8 @@
 import json #For parsing JSON
 import sys  #For getting system input
 import os #For dealing with filenames
+
+
 def flattenDictionary(dictionary, name=[]):
     """
     This function takes
@@ -30,10 +32,7 @@ def flattenDictionary(dictionary, name=[]):
             flattenedDict[".".join(subname)] = dictionary[key]
 
     return flattenedDict
-        
-
-    
-
+ 
 
 if __name__ == "__main__":
     """
