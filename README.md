@@ -1,3 +1,4 @@
+
 # JSON Flattener
 ## How to run
 The JSON flattener can be run via the following command
@@ -12,6 +13,7 @@ This will also output an error message if a test's output differs from its basel
 ## Test cases on dictionary key
 ### File contains duplicate keys
 `inputs/duplicateKeys.json`
+
 The default Python3 json parser only associates the terminal value associated with a key in the case of duplicates. So for example, loading the following JSON file
 
 	{"a": 1,
@@ -27,13 +29,16 @@ Because this happens during parsing I do not check for it.
 ## Test cases on dictionary value
 ### Value is empty/None
 `inputs/nullValues.json`
+
 This should fail with an exception
 ### Value is empty string
 `inputs/emptyValues.json`
 ### Value is empty list
 `inputs/emptyValues.json`
+
 The problem statement says there won't be lists, but the code handles empty lists so I include it for completions sake.
 ### Value is empty dictionary
 `inputs/terminallyEmpty.json`
 `inputs/fullyEmpty.json`
+
 This should still print the key name to dictionary, since presumably we want to know that the key existed in the non-flattened verion as an empty dict. I think we can consider an empty dictionary to be flattened.
