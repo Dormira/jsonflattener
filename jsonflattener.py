@@ -20,14 +20,11 @@ def flattenDictionary(dictionary, name=[]):
     flattenedDict = {}
     for key in dictionary.keys():
         subname = name+[key]
-        if type(dictionary[key]) == dict:
+        #If the key refers to a non-empty dictionary, flatten it and merge
+        if type(dictionary[key]) == dict and len(dictionary[key].keys()) != 0:
             subdict = flattenDictionary(dictionary[key], subname)
-            #If the flattened subdictionary is empty we have to make sure that's noted
-            if subdict == {}:
-                flattenedDict[".".join(subname)] = {}
-            else:
-                #Otherwise a standard dictionary update should be fine
-                flattenedDict.update(subdict)
+            flattenedDict.update(subdict)
+        #Otherwise add it as it is
         else:
             flattenedDict[".".join(subname)] = dictionary[key]
 
